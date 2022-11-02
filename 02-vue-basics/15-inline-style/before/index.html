@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <script src="lib/vue.global.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <title>在 inline-style 内联样式中绑定 data 数据</title>
-  </head>
-  <body>
-    <div id="app">
-      <div>
-        <p style="color: white; font-size: 16px">这是一个段落</p>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>在 inline-style 内联样式中绑定 data 数据</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <p style="color: white; font-size: 16px">这是一个段落</p>
+      <p :style="pStyle">动态改变字体大小</p>
+      <button @click="fontSize += 1">+</button>
+      <button @click="fontSize -= 1">-</button>
     </div>
-    <script src="index.js"></script>
-  </body>
+  </div>
+  <script src="index.js"></script>
+</body>
+
 </html>
