@@ -7,6 +7,20 @@ const app = Vue.createApp({
         author: "张旭乾",
         pubDate: "2021-12-12",
       },
+      todos: [
+        {
+          id: 1,
+          content: "代办1"
+        },
+        {
+          id: 2,
+          content: "代办2"
+        },
+        {
+          id: 3,
+          content: "代办3"
+        },
+      ]
     };
   },
 });
