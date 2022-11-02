@@ -9,5 +9,17 @@ const app = Vue.createApp({
       intro: "",
     };
   },
+  methods: {
+    handleSubmit(e) {
+      // console.log(e)
+      console.log(
+        this.username,
+        this.gender,
+        this.interests,
+        this.occupation,
+        this.intro
+      )
+    }
+  }
 });
 app.mount("#app");
