@@ -1,9 +1,8 @@
 <template>
   <main>
     <div>
-      <MessageItem sender="张三" msg="你好呀!" time="19:38" />
-      <MessageItem sender="李四" msg="Hi!" time="19:40" />
-      <MessageItem sender="王五" msg="最近怎么样？" time="19:42" />
+      <!-- <MessageItem v-for="msg in messages" :key=msg.id :sender="msg.sender" :msg="msg.msg" :time="msg.time" /> -->
+      <MessageItem v-for="msg in messages" :key="msg.id" v-bind="msg" />
     </div>
   </main>
 </template>
@@ -14,6 +13,30 @@ export default {
   components: {
     MessageItem,
   },
+  data() {
+    return {
+      messages: [
+        {
+          id: 1,
+          sender: "张三",
+          msg: "你好呀!",
+          time: "19:38",
+        },
+        {
+          id: 2,
+          sender: "李四",
+          msg: "Hi!",
+          time: "19:40",
+        },
+        {
+          id: 3,
+          sender: "王五",
+          msg: "最近怎么样？",
+          time: "19:42",
+        },
+      ],
+    }
+  }
 };
 </script>
 
