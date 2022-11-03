@@ -1,10 +1,17 @@
 <template>
   <main>
     <div>
-      <BaseCard title="卡片容器">
-        <p>这是卡片的内容</p>
-        <p>可以插入任何 HTML 模板</p>
-        <a href="#">这是一个超链接</a>
+      <BaseCard>
+        <template #title>
+          <h2>zheshikapianneirong</h2>
+        </template>
+        <template #content>
+          <div>
+            <p>这是卡片的内容</p>
+            <p>可以插入任何 HTML 模板</p>
+            <a href="#">这是一个超链接</a>
+          </div>
+        </template>
       </BaseCard>
     </div>
   </main>
@@ -31,10 +38,8 @@ export default {
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }

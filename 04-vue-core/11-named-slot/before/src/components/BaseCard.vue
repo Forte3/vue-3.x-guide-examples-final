@@ -1,8 +1,10 @@
 <template>
   <div class="card">
-    <div class="title">{{ title }}</div>
+    <div class="title">
+      <slot name="title"></slot>
+    </div>
     <div class="content">
-      <slot></slot>
+      <slot name="content"></slot>
       <!-- <slot>
         <p>默认卡片内容</p>
       </slot> -->
@@ -20,6 +22,7 @@ export default {
   padding: 20px;
   border-radius: 8px;
 }
+
 .title {
   font-size: 1.5em;
   font-weight: bold;
