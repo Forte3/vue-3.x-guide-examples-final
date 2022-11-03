@@ -1,12 +1,17 @@
 <script>
+import MessageItem from './components/MessageItem.vue'
 export default {
-
+  components: {
+    MessageItem
+  }
 };
 </script>
 
 <template>
   <main>
     <div>
+      <MessageItem sender="张三" time="12:00" msg="吃饭" />
+      <MessageItem sender="王五" time="13:00" msg="睡觉" />
     </div>
   </main>
 </template>
