@@ -1,7 +1,9 @@
 <template>
   <div class="card">
     <div class="title">{{ title }}</div>
-    <div class="content"></div>
+    <div class="content">
+      <slot>默认内容</slot>
+    </div>
   </div>
 </template>
 <script>
@@ -15,6 +17,7 @@ export default {
   padding: 20px;
   border-radius: 8px;
 }
+
 .title {
   font-size: 1.5em;
   font-weight: bold;

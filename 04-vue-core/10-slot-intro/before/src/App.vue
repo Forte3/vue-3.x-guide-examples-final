@@ -1,7 +1,9 @@
 <template>
   <main>
     <div>
-      <BaseCard title="卡片容器"> </BaseCard>
+      <BaseCard title="卡片容器">
+        <p>这是卡片内容</p>
+      </BaseCard>
     </div>
   </main>
 </template>
@@ -27,10 +29,8 @@ export default {
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }
