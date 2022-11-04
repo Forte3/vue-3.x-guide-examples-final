@@ -2,7 +2,7 @@
   <main>
     <div class="container">
       <PaginationComponent :totalPage="totalPage" :defaultCurrentPage="currentPage" />
-      <button @click="totalPage += 1">增加页数</button>
+      <button @click="this.totalPage += 1">增加页数</button>
     </div>
   </main>
 </template>
