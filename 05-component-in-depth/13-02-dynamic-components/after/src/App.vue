@@ -3,10 +3,7 @@
     <div>
       <Component :is="currentForm" />
       <div class="buttons">
-        <button
-          v-if="currentForm === 'RegisterForm'"
-          @click="currentForm = 'ProfileForm'"
-        >
+        <button v-if="currentForm === 'RegisterForm'" @click="currentForm = 'ProfileForm'">
           下一步
         </button>
         <template v-else-if="currentForm === 'ProfileForm'">
@@ -47,10 +44,8 @@ export default {
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }
@@ -74,11 +69,9 @@ input {
 
 button {
   border: none;
-  background: linear-gradient(
-    90deg,
-    hsl(240deg, 50%, 50%),
-    hsl(280deg, 50%, 50%)
-  );
+  background: linear-gradient(90deg,
+      hsl(240deg, 50%, 50%),
+      hsl(280deg, 50%, 50%));
   padding: 12px 18px;
   margin-top: 12px;
   border-radius: 4px;

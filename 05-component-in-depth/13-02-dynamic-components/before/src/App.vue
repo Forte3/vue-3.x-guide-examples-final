@@ -1,11 +1,35 @@
 <template>
   <main>
-    <div></div>
+    <div>
+      <Component :is="currentForm" />
+      <div class="buttons">
+        <button v-if="currentForm === 'RegisterForm'" @click="currentForm = 'ProfileForm'">
+          下一页
+        </button>
+        <template v-else-if="currentForm === 'ProfileForm'">
+          <button @click="currentForm = 'RegisterForm'">
+            上一页
+          </button>
+        </template>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
-export default {};
+import RegisterForm from './components/RegisterForm.vue';
+import ProfileForm from './components/ProfileForm.vue'
+export default {
+  components: {
+    RegisterForm,
+    ProfileForm
+  },
+  data() {
+    return {
+      currentForm: "RegisterForm"
+    }
+  }
+};
 </script>
 
 <style>
@@ -19,10 +43,8 @@ export default {};
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }
@@ -46,11 +68,9 @@ input {
 
 button {
   border: none;
-  background: linear-gradient(
-    90deg,
-    hsl(240deg, 50%, 50%),
-    hsl(280deg, 50%, 50%)
-  );
+  background: linear-gradient(90deg,
+      hsl(240deg, 50%, 50%),
+      hsl(280deg, 50%, 50%));
   padding: 12px 18px;
   margin-top: 12px;
   border-radius: 4px;
