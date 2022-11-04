@@ -1,13 +1,24 @@
 <template>
   <div>
-    <button v-for="n in totalPage">
+    <h2>当前页 {{ currentPage }}</h2>
+    <button v-for="n in totalPage" @click="handleCurrentPage(n)">
       {{ n }}
     </button>
   </div>
 </template>
 <script>
 export default {
-  props: ["totalPage"],
+  props: ["totalPage", "defaultCurrentPage"],
+  data() {
+    return {
+      currentPage: this.defaultCurrentPage
+    }
+  },
+  methods: {
+    handleCurrentPage(n) {
+      this.currentPage = n
+    }
+  }
 };
 </script>
 <style scoped>
