@@ -1,11 +1,7 @@
 <template>
-  <label
-    ><span>搜索：</span
-    ><input
-      type="text"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-    />
+  <label>
+    <span>搜索：</span>
+    <input type="text" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
   </label>
 </template>
 <script>
