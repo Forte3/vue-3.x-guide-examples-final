@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="contact in contacts" :key="contact.id">
-      <slot />
+      <slot :contact="contact" />
     </li>
   </ul>
 </template>
@@ -34,6 +34,7 @@ export default {
 ul {
   list-style: none;
 }
+
 ul li {
   padding: 1em 0;
 }
