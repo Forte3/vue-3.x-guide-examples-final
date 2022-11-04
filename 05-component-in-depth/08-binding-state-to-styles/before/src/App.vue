@@ -15,10 +15,25 @@ export default {
       degree: 0,
     };
   },
+  computed: {
+    degreeStr() {
+      return this.degree + "deg"
+    }
+  }
 };
 </script>
 
 <style>
+.box {
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  background-color: hsl(280deg, 100%, 60%);
+  box-shadow: 0 0 24px hsl(280deg, 100%, 70%, 0.5);
+  /* transform: rotate(v-bind(degree + "deg")); */
+  transform: rotate(v-bind(degreeStr));
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,10 +44,8 @@ export default {
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }
@@ -51,13 +64,7 @@ main {
   row-gap: 24px;
 }
 
-.box {
-  width: 250px;
-  height: 250px;
-  border-radius: 8px;
-  background-color: hsl(280deg, 100%, 60%);
-  box-shadow: 0 0 24px hsl(280deg, 100%, 70%, 0.5);
-}
+
 
 .control {
   margin-top: 64px;
