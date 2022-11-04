@@ -3,6 +3,7 @@
     <div>
       <ButtonWithProps :onclick="handleClick" />
       <ButtonWithEmits @customClick="handleClick" />
+      <!-- <ButtonWithEmits @customClick="handleClick" /> -->
     </div>
   </main>
 </template>
@@ -35,10 +36,8 @@ export default {
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }
