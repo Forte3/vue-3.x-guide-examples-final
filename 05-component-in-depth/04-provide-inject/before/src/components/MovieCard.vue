@@ -1,9 +1,6 @@
 <template>
   <div class="card">
-    <MovieItem
-      :title="movie.title"
-      :description="movie.description"
-    />
+    <MovieItem :description="movie.description" />
   </div>
 </template>
 <script>
@@ -20,6 +17,11 @@ export default {
       },
     };
   },
+  provide() {
+    return {
+      title: this.movie.title
+    }
+  }
 };
 </script>
 <style scoped>
