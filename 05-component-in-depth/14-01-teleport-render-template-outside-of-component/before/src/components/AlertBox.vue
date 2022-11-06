@@ -1,10 +1,12 @@
 <template>
-  <div v-if="show" class="alertBox">
-    <div class="closeIcon" @click="show = false">X</div>
-    <div class="content">
-      <slot>消息提示框组件</slot>
+  <Teleport to="body">
+    <div v-if="show" class="alertBox">
+      <div class="closeIcon" @click="show = false">X</div>
+      <div class="content">
+        <slot>消息提示框组件</slot>
+      </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 <script>
 export default {
@@ -33,6 +35,7 @@ export default {
   display: flex;
   align-items: center;
 }
+
 .closeIcon {
   position: absolute;
   right: 12px;
