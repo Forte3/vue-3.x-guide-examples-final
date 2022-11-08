@@ -1,17 +1,13 @@
 <template>
   <div>
     <ul>
-      <MessageListItem
-        v-for="msg in messages"
-        :key="msg.id"
-        :id="msg.id"
-        :msg="msg.content"
-      ></MessageListItem>
+      <MessageListItem v-for="msg in messages" :key="msg.id" :id="msg.id" :msg="msg.content" @remove="removeMsg">
+      </MessageListItem>
     </ul>
   </div>
 </template>
 <script>
-import { ref, watch, watchEffect } from "vue";
+import { ref, watch, watchEffect, reactive } from "vue";
 import MessageListItem from "./MessageListItem.vue";
 
 export default {
@@ -24,7 +20,12 @@ export default {
       { id: 4, content: "这是一条消息提醒4" },
     ]);
 
-    return { messages };
+    function removeMsg(id) {
+      // console.log(id)
+      messages.value = messages.value.filter((msg) => msg.id !== id)
+    }
+
+    return { messages, removeMsg };
   },
 };
 </script>
