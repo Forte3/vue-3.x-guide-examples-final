@@ -1,12 +1,18 @@
 <template>
-  <li>{{ msg }}</li>
+  <li>{{ msg }}<button @click="removeMsg(id)">删除</button></li>
 </template>
 <script>
 import { ref, watch, watchEffect, toRefs } from "vue";
 
 export default {
   props: ["msg", "id"],
-  setup(props) {},
+  setup(props) {
+    const removeMsg = (id) => {
+      console.log('删除', id);
+    };
+
+    return { removeMsg }
+  },
 };
 </script>
 <style scoped>
