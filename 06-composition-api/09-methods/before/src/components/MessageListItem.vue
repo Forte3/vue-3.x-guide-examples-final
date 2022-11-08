@@ -11,6 +11,10 @@ export default {
       console.log('删除', id);
     };
 
+    // function removeMsg(id) {
+    //   console.log('删除', id)
+    // }
+
     return { removeMsg }
   },
 };
