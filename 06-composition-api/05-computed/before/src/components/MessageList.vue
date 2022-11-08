@@ -1,23 +1,33 @@
 <template>
   <div>
+    <input type="text" placeholder="搜索信息" v-model="searchTerm">
     <ul>
-      <li v-for="msg in messages" :key="msg.id">{{ msg.content }}</li>
+      <li v-for="msg in searchedMessages" :key="msg.id">{{ msg.content }}</li>
     </ul>
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import { ref, reactive, computed } from "vue";
 
 export default {
   setup() {
-    const messages = ref([
+    const messages = reactive([
       { id: 1, content: "这是一条消息提醒1" },
       { id: 2, content: "这是一条消息提醒2" },
       { id: 3, content: "这是一条消息提醒3" },
       { id: 4, content: "这是一条消息提醒4" },
     ]);
 
-    return { messages };
+    const searchTerm = ref("")
+
+    const searchedMessages = computed(() => {
+      if (searchTerm.value === "") return messages
+      return messages.filter((msg) => {
+        return msg.content.includes(searchTerm.value)
+      })
+    })
+
+    return { messages, searchTerm, searchedMessages };
   },
 };
 </script>
