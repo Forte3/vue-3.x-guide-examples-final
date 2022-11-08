@@ -5,9 +5,15 @@
     </ul>
     <button @click="messages = []">删除全部</button>
   </div>
+
+  <h2>{{ options.title }}</h2>
+  <button @click="options.title = '修改后的标题'">修改标题</button>
+  <h2>姓名：{{ options.user.name }}</h2>
+  <p>是否活跃:{{ options.user.active ? '是' : '否' }}</p>
+  <button @click="options.user.name = '王五'">修改用户</button>
 </template>
 <script>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 
 export default {
   setup() {
@@ -18,9 +24,17 @@ export default {
       { id: 4, content: "这是一条消息提醒4" },
     ]);
 
+    const options = reactive({
+      title: '标题',
+      user: {
+        name: '张三',
+        active: true
+      }
+    })
+
     console.log(messages.value);
 
-    return { messages };
+    return { messages, options };
   },
 };
 </script>
