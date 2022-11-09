@@ -4,7 +4,9 @@
       <button @click="show = !show">
         {{ show ? "隐藏" : "显示" }}
       </button>
-      <div v-if="show" class="box"></div>
+      <Transition name="fadeAndScale">
+        <div v-if="show" class="box"></div>
+      </Transition>
     </div>
   </main>
 </template>
@@ -16,6 +18,81 @@ const show = ref(false);
 </script>
 
 <style>
+.box {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg,
+      hsl(240deg, 60%, 50%),
+      hsl(300deg, 90%, 50%));
+  padding: 0.5em 1.4em;
+  border-radius: 4px;
+  color: white;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+/* .fadeAndScale-enter-from {
+  opacity: 0;
+}
+
+.fadeAndScale-enter-to {
+  opacity: 1;
+}
+
+.fadeAndScale-leave-from {
+  opacity: 1;
+}
+
+.fadeAndScale-leave-to {
+  opacity: 0;
+} */
+
+.fadeAndScale-enter-active {
+  /* ease-in-out 规定以慢速开始和结束的过渡效果 */
+  transition: all 0.7s ease-in-out;
+  animation: scale 0.7s ease-in-out;
+}
+
+.fadeAndScale-enter-from {
+  opacity: 0;
+}
+
+.fadeAndScale-enter-to {
+  opacity: 1;
+}
+
+.fadeAndScale-leave-active {
+  /*  ease-in	规定以慢速开始的过渡效 */
+  transition: all 0.3s ease-in;
+  animation: scale 0.3s ease-in reverse;
+}
+
+.fadeAndScale-leave-from {
+  opacity: 1;
+}
+
+.fadeAndScale-leave-to {
+  opacity: 0;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+
+  33% {
+    transform: scale(1.1);
+  }
+
+  66% {
+    transition: scale(0.9);
+  }
+
+  100% {
+    transition: scale(1);
+  }
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,10 +103,8 @@ const show = ref(false);
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }
@@ -51,26 +126,11 @@ body {
 
 button {
   border: none;
-  background: linear-gradient(
-    90deg,
-    hsl(240deg, 50%, 50%),
-    hsl(280deg, 50%, 50%)
-  );
+  background: linear-gradient(90deg,
+      hsl(240deg, 50%, 50%),
+      hsl(280deg, 50%, 50%));
   padding: 12px 18px;
   margin-bottom: 24px;
-  border-radius: 4px;
-  color: white;
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(
-    45deg,
-    hsl(240deg, 60%, 50%),
-    hsl(300deg, 90%, 50%)
-  );
-  padding: 0.5em 1.4em;
   border-radius: 4px;
   color: white;
 }
