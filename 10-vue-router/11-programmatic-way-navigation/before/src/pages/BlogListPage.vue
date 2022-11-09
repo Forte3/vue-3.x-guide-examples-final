@@ -4,12 +4,13 @@
       <article v-for="blogPost in blogPosts" :key="blogPost.id">
         <h2>
           <router-link :to="`/${blogPost.id}`">{{
-            blogPost.title
+              blogPost.title
           }}</router-link>
         </h2>
         <p>{{ blogPost.body.substring(0, 100) + "..." }}</p>
         <footer>
-          <button>查看全文</button>
+          <!-- <button @click="$router.push(`/${blogPost.id}`)">查看全文</button> -->
+          <button @click="$router.push({ name: 'blogPost', params: { postId: blogPost.id } })">查看全文</button>
         </footer>
       </article>
     </div>
@@ -38,11 +39,9 @@ export default {
 
 button {
   border: none;
-  background: linear-gradient(
-    90deg,
-    hsl(240deg, 50%, 50%),
-    hsl(280deg, 50%, 50%)
-  );
+  background: linear-gradient(90deg,
+      hsl(240deg, 50%, 50%),
+      hsl(280deg, 50%, 50%));
   padding: 12px 18px;
   margin-top: 12px;
   border-radius: 4px;
