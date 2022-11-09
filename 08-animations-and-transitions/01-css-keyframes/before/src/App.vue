@@ -2,10 +2,15 @@
   <main>
     <div class="container">
       <div class="box"></div>
+      <input type="text" v-model="duration">
     </div>
   </main>
 </template>
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const duration = ref(10);
+</script>
 
 <style>
 * {
@@ -18,10 +23,8 @@
 body {
   background-color: #0f141c;
   opacity: 1;
-  background-image: radial-gradient(
-    #212943 0.6000000000000001px,
-    #0f141c 0.6000000000000001px
-  );
+  background-image: radial-gradient(#212943 0.6000000000000001px,
+      #0f141c 0.6000000000000001px);
   background-size: 12px 12px;
   color: white;
 }
@@ -52,13 +55,23 @@ input {
 .box {
   width: 100px;
   height: 100px;
-  background: linear-gradient(
-    45deg,
-    hsl(240deg, 60%, 50%),
-    hsl(300deg, 90%, 50%)
-  );
+  background: linear-gradient(45deg,
+      hsl(240deg, 60%, 50%),
+      hsl(300deg, 90%, 50%));
   padding: 0.5em 1.4em;
   border-radius: 4px;
   color: white;
+  /* animation: rotate 10s linear infinite; */
+  animation: rotate v-bind(duration + 's') linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
